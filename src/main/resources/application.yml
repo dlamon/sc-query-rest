@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: query-rest
+  cloud:
+    consul:
+      host: 192.168.99.103
+      port: 8500
+server:
+  port: 8285
+com:
+  alipay:
+    sofa:
+      rpc:
+        bolt-port: 12223
+        registry:
+          address: consul://192.168.99.103:8500?healthCheck.type=http&healthCheck.path=/actuator/readiness&healthCheck.port=${server.port}
+env: dev
